@@ -11,6 +11,63 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <title>RecipeBox App</title>
         <style>
+        .feather {
+            width: 16px;
+            height: 16px;
+            vertical-align: text-bottom;
+        }
+        /*
+        * Sidebar
+        */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            z-index: 100; /* Behind the navbar */
+            padding: 48px 0 0; /* height of navbar */
+            box-shadow: inset -1px 0 0 rgba(0,0,0 .1);
+        }
+
+        .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: calc(100vh - 48px);
+            padding-top: .5rem;
+            overflow-x: hidden;
+            overflow-y: auto; /* Scrollable contents if viewport is shorter than content */
+        }
+
+        @supports ((position: -webkit-sticky) or position: sticky)) {
+            .sidebar-sticky {
+                position: -webkit-sticky;
+                position: sticky;
+            }
+        }
+
+        .sidebar .nav-link {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .sidebar .nav-link .feather {
+            margin-right: 4px;
+            color: #999;
+        }
+
+        .sidebar .nav-link.active {
+            color: #007bff;
+        }
+
+        .sidebar .nav-link:hover .feather,
+        .sidebar .nav-link.active .feather {
+            color: inherit;
+        }
+
+        .sidebar-heading {
+            font-size: .75rem;
+            text-transform: uppercase;
+        }
         /*
         * Content
         */
@@ -23,6 +80,23 @@
         [role="main"] {
             padding-top: 48px; /* Space for fixed navbar */
         }
+        }
+
+        /*
+        * Navbar
+        */ 
+
+        .navbar-brand {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            font-size: 1rem;
+            box-shadow: inset -1px 0 0 rgba(255, 255, 255, .25);
+        }
+
+        .navbar .form-control {
+            padding: .75rem 1rem;
+            border-width: 0;
+            border-radius:0;
         }
         </style>
     </head>
@@ -48,22 +122,95 @@
                                     Dashboard <span class="sr-only">(current)</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                  <span data-feather="shopping-cart"></span>
+                                  Products
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                  <span data-feather="user"></span>
+                                  Profile
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                  <span data-feather="users"></span>
+                                  Social
+                                </a>
+                              </li>
                         </ul>
 
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                            <span>Saved Reports</span>
+                            <span>Shopping Lists</span>
                             <a class="" href="#">
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <span data-feather="file-text"></span>
+                                <a class="nav-link" href="#"><span data-feather="file-text"></span>    
                                 Current month
+                            </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Dashboard</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group mr-2">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                            </div>
+                            <button type="button" class="btn-sm btn-outline-secondary dropdown-toggle">
+                                <span data-feather="calendar"></span>
+                                This week
+                            </button>
+                        </div>
+                    </div>
+                    <div class="">
+                        <p>Hello, FirstName!</p>
+                        <hr>
+                    </div>
+                    <div class="">
+                        <div>
+                            <h2 class="h4">My Recipe Queue</h2>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card" style="max-width: 13.25rem; ">
+                            <div style="max-width: 13.25rem; max-height:7.5rem; overflow: hidden;">
+                                <img class="card-img-top" alt="Recipe Name" src="https://eatathomecooks.com/wp-content/uploads/2019/05/Sweet-Potato-Black-Bean-Kale-Enchiladas.jpg">
+                            </div>
+                            <div class="card-body">    
+                                <h5 class="card-title">Recipe Name</h5>
+                                <p class="card-text">Recipe Description</p>
+                                <small class="text-muted">3 mins ago</small>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <hr>
+                    <div class="">
+                        <div>
+                            <h4>All Recipes</h4>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="">
+                        <div class="">
+                                <h5>Recipe Name</h5>
+                                <p>Recipe Description</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                </main>
             </div>
         </div>
               
